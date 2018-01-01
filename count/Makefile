@@ -3,7 +3,7 @@ PROGS = count_atomic count_wrong count_thread_local
 
 all: $(PROGS)
 
-GCC_ARGS=-O3 -Wall -pthread -std=c++11 -lprofiler
+GCC_ARGS=-O3 -Wall -pthread -std=c++11
 
 define make_cout
   $1: $1.cc count_test.h ../api.h config.h

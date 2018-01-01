@@ -1,7 +1,9 @@
 #pragma once
 
-#define READ_COUNT 1000000
-#define UPDATE_COUNT 1000000
+#define READ_COUNT 1000
+#define UPDATE_COUNT 1000
+
+#define DURATION 1
 
 #define READ_THREADS  1
 #define UPDATE_THREADS 10

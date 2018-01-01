@@ -2,6 +2,7 @@
 
 #include <atomic>
 #include <mutex>
+#include <sched.h>
 
 #define barrier() __asm__ __volatile__("": : :"memory")
 
@@ -25,3 +26,11 @@ public:
     locked.clear(std::memory_order_release);
   }
 };
+
+static __inline__ void run_on(int cpu){
+  cpu_set_t mask;
+
+  CPU_ZERO(&mask);
+  CPU_SET(cpu, &mask);
+  sched_setaffinity(0, sizeof(mask), &mask);
+}
